@@ -10,7 +10,7 @@ assembly_info:
   patch: false
 
 platform:
-  - AnyCPU
+  - Any CPU
 
 configuration:
   - Release
