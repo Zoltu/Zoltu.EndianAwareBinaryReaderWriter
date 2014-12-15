@@ -1,0 +1,33 @@
+branches:
+  only:
+    - master
+
+skip_tags: true
+
+version: "{build}"
+
+assembly_info:
+  patch: false
+
+platform:
+  - AnyCPU
+
+configuration:
+  - Release
+
+before_build:
+  - cmd: nuget restore
+
+build:
+  project: Zoltu.EndianAwareBinaryReaderWriter.sln
+  verbosity: minimal
+
+artifacts:
+  - path: Code/bin/**/*.nupkg
+  - path: Code/bin/**/*.dll
+  - path: Code/bin/**/*.pdb
+
+deploy:
+  provider: NuGet
+  api_key:
+    secure: X6YnwwH05dy0122NypnAz4w1ti39JQ49I8bQqDsLHzUwAp1rhvm6yvPo03EpwD8e
